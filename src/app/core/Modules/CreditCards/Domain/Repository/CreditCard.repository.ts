@@ -6,7 +6,7 @@ import {AllCreditCardsDtoSchema} from '../Dtos/CreditCard.dto';
 import {z} from 'zod';
 
 export const validate = (
-  schema: z.AnyZodObject | z.ZodArray<any>,
+  schema: z.ZodObject<any> | z.ZodArray<any>,
   dto: any,
 ): {
   [x: string]: any;
