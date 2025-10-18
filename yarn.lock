@@ -1693,7 +1693,7 @@
     eslint-plugin-react-hooks "^5.2.0"
     eslint-plugin-react-native "^4.0.0"
 
-"@react-native/eslint-plugin@0.82.0":
+"@react-native/eslint-plugin@0.82.0", "@react-native/eslint-plugin@^0.82.0":
   version "0.82.0"
   resolved "https://registry.yarnpkg.com/@react-native/eslint-plugin/-/eslint-plugin-0.82.0.tgz#5bdc8ac412176518985a3261563e83614fa5c1b7"
   integrity sha512-kSZvt008PemdyDUDEYwTEM3ar1UcES74yEN74ogTnMThWeHx/SADOex10yqdzeHwVmjl+N9q0R96Rg49B4h6Vw==

@@ -1,6 +1,5 @@
 import React, {useMemo, useState} from 'react';
 import {
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -8,6 +7,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import CreditCardUseCaseProvider, {
   useCreditCardImpl,
@@ -21,11 +21,11 @@ const Colors = {
   white: '#FFFFFF',
 };
 
-function App(): React.JSX.Element {
+export default function App(): React.JSX.Element {
   const creditCardImpl = useCreditCardImpl();
 
   const [creditCards, setCrediCards] = useState<CreditCard[]>();
-  const [creditCardsError, setCrediCardsError] = useState<any>();
+  const [_, setCrediCardsError] = useState<any>();
 
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -44,6 +44,7 @@ function App(): React.JSX.Element {
 
   useMemo(async () => {
     await invokeCreditcards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -61,34 +62,15 @@ function App(): React.JSX.Element {
               backgroundColor: isDarkMode ? Colors.black : Colors.white,
             }}>
             {creditCards?.map((creditCard: CreditCard) => (
-              <View style={{padding: 8}}>
-                <View
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: 8,
-                    padding: 16,
-                    shadowColor: '#000000',
-                    shadowOpacity: 0.2,
-                    shadowOffset: {width: 0, height: 2},
-                    shadowRadius: 4,
-                    elevation: 4,
-                  }}>
-                  <Text
-                    style={{fontSize: 18, fontWeight: 'bold', marginBottom: 8}}>
+              <View style={styles.cardContainer}>
+                <View style={styles.card}>
+                  <Text style={styles.cardAmount}>
                     {'US$ ' + creditCard.cashAdvance}
                   </Text>
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      color: '#777777',
-                    }}>
+                  <Text style={styles.cardText}>
                     {creditCard.alias}
                   </Text>
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      color: '#777777',
-                    }}>
+                  <Text style={styles.cardText}>
                     {creditCard.productNumber}
                   </Text>
                 </View>
@@ -118,6 +100,26 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  cardContainer: {
+    padding: 8,
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    padding: 16,
+    shadowColor: '#000000',
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  cardAmount: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  cardText: {
+    fontSize: 14,
+    color: '#777777',
+  },
 });
-
-export default App;
