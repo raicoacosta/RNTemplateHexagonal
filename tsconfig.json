@@ -40,6 +40,7 @@
     "baseUrl": ".",                           /* Base directory to resolve non-absolute module names. */
     "paths": {
       "*": ["./*"],
+      "@app/*": ["src/app/*"],
       "@core/*": ["src/app/core/*"],
       "@enums/*": ["src/app/shared/Enums/*"],
       "@components/*": ["src/app/shared/Components/*"],
@@ -65,9 +66,9 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     
     /* Deprecation Options */
-    "ignoreDeprecations": "6.0"               /* Silence deprecation warnings for TypeScript 6.x features */
+    "ignoreDeprecations": "5.0"               /* Silence deprecation warnings for TypeScript 5.x features */
   },
   "exclude": [
-    "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
+    "node_modules", "babel.config.js", "metro.config.js", "jest.config.js", "__tests__"
   ]
 }

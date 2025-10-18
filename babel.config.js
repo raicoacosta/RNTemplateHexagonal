@@ -7,10 +7,11 @@ module.exports = {
         root: ['./'],
         extensions: ['.tsx', '.ts'],
         alias: {
+          '@app': './src/app',
           '@core': './src/app/core',
           '@enums': './src/app/shared/enums',
-          '@components/': './src/app/shared/Components',
-          '@helpers/': 'src/app/shared/Helpers/',
+          '@components': './src/app/shared/Components',
+          '@helpers': './src/app/shared/Helpers',
         },
       },
     ],

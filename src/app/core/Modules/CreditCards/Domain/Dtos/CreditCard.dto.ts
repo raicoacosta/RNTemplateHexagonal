@@ -1,18 +1,26 @@
 import {z} from 'zod';
 
+/**
+ * Schema Zod para validación de tarjetas de crédito
+ * Campos requeridos para garantizar integridad de datos
+ */
 const CreditCardResponseSchema = z.object({
-  alias: z.string().optional(),
-  bankName: z.string().optional(),
-  cashAdvance: z.number().optional(),
-  currency: z.string().optional(),
-  currencyUS: z.string().optional(),
-  currentBalanceRD: z.number().optional(),
-  expirationDateCC: z.string().optional(),
-  isInternational: z.boolean().optional(),
-  name: z.string().optional(),
-  pendingBalanceAtCutRD: z.number().optional(),
-  productNumber: z.string().optional(),
-  productType: z.string().optional(),
+  alias: z.string().min(1, 'Alias is required'),
+  bankName: z.string().min(1, 'Bank name is required'),
+  cashAdvance: z.number().nonnegative('Cash advance must be positive'),
+  currency: z.string().min(1, 'Currency is required'),
+  currencyUS: z.string().min(1, 'Currency US is required'),
+  currentBalanceRD: z.number().nonnegative('Current balance must be non-negative'),
+  expirationDateCC: z
+    .string()
+    .regex(/^\d{2}\/\d{4}$/, 'Expiration date must be in MM/YYYY format'),
+  isInternational: z.boolean(),
+  name: z.string().min(1, 'Name is required'),
+  pendingBalanceAtCutRD: z.number().nonnegative('Pending balance must be non-negative'),
+  productNumber: z
+    .string()
+    .regex(/^\d{16}$/, 'Product number must be 16 digits'),
+  productType: z.string().min(1, 'Product type is required'),
 });
 
 export type CreditCardDto = z.infer<typeof CreditCardResponseSchema>;

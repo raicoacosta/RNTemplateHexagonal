@@ -23,7 +23,8 @@ export default function App(): React.JSX.Element {
   const creditCardImpl = useCreditCardImpl();
 
   const [creditCards, setCrediCards] = useState<CreditCard[]>();
-  const [_creditCardsError, setCrediCardsError] = useState<any>();
+  const [error, setError] = useState<string>();
+  const [isLoading, setIsLoading] = useState(true);
 
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -32,12 +33,20 @@ export default function App(): React.JSX.Element {
   };
 
   const invokeCreditcards = async () => {
-    try {
-      const response = await creditCardImpl.executeGetAll();
-      setCrediCards(response);
-    } catch (error) {
-      setCrediCardsError(error);
+    setIsLoading(true);
+    setError(undefined);
+
+    const result = await creditCardImpl.executeGetAll();
+
+    if (result.isSuccess) {
+      setCrediCards(result.getValue());
+    } else {
+      const errorMessage = result.getError().message;
+      setError(errorMessage);
+      console.error('Error fetching credit cards:', errorMessage);
     }
+
+    setIsLoading(false);
   };
 
   React.useEffect(() => {
@@ -58,7 +67,25 @@ export default function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          {creditCards?.map((creditCard: CreditCard) => (
+          {isLoading && (
+            <View style={styles.centerContainer}>
+              <Text style={styles.loadingText}>Cargando tarjetas...</Text>
+            </View>
+          )}
+
+          {error && (
+            <View style={styles.centerContainer}>
+              <Text style={styles.errorText}>Error: {error}</Text>
+            </View>
+          )}
+
+          {!isLoading && !error && creditCards?.length === 0 && (
+            <View style={styles.centerContainer}>
+              <Text style={styles.emptyText}>No hay tarjetas disponibles</Text>
+            </View>
+          )}
+
+          {!isLoading && !error && creditCards?.map((creditCard: CreditCard) => (
             <View key={creditCard.productNumber} style={styles.cardContainer}>
               <View style={styles.card}>
                 <Text style={styles.cardAmount}>
@@ -117,5 +144,22 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: 14,
     color: '#777777',
+  },
+  centerContainer: {
+    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loadingText: {
+    fontSize: 16,
+    color: '#666666',
+  },
+  errorText: {
+    fontSize: 16,
+    color: '#FF0000',
+  },
+  emptyText: {
+    fontSize: 16,
+    color: '#999999',
   },
 });

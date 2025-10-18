@@ -155,6 +155,7 @@ Gemfile.lock
 .env.local
 .env.development
 .env.test
+.env.staging
 .env.production
 .env.*.local
 
@@ -206,3 +207,8 @@ buck-out/
 !yarn.lock
 !package-lock.json
 !Gemfile.lock
+
+# ==========================================
+# Temporal and IA files references
+# ==========================================
+ARCHITECTURE_IMPROVEMENTS.md
