@@ -11,7 +11,7 @@ const AsyncStorageImplContext = createContext<IStorage>(asyncStorageImpl);
 const AsyncStorageImplementationProvider = ({
   children,
 }: {
-  children: JSX.Element;
+  children: React.ReactElement;
 }) => {
   return (
     <AsyncStorageImplContext.Provider value={asyncStorageImpl}>

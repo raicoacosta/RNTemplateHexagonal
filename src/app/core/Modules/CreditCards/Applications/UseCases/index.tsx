@@ -6,7 +6,7 @@ const {createContext, useContext} = React;
 export const creditCardImpl = new CreditCardUseCase();
 const CreditCardContext = createContext(creditCardImpl);
 
-const CreditCardUseCaseProvider = ({children}: {children: JSX.Element}) => {
+const CreditCardUseCaseProvider = ({children}: {children: React.ReactElement}) => {
   return (
     <CreditCardContext.Provider value={creditCardImpl}>
       {children}

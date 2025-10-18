@@ -9,13 +9,19 @@ import {
   View,
 } from 'react-native';
 
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 import CreditCardUseCaseProvider, {
   useCreditCardImpl,
 } from '@core/Modules/CreditCards/Applications/UseCases';
 import {CreditCard} from '@core/Modules/CreditCards/Domain/Entities/CreditCard';
 
-function App(): JSX.Element {
+const Colors = {
+  lighter: '#F3F3F3',
+  darker: '#242c40',
+  black: '#000000',
+  white: '#FFFFFF',
+};
+
+function App(): React.JSX.Element {
   const creditCardImpl = useCreditCardImpl();
 
   const [creditCards, setCrediCards] = useState<CreditCard[]>();
@@ -50,7 +56,6 @@ function App(): JSX.Element {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={backgroundStyle}>
-          <Header />
           <View
             style={{
               backgroundColor: isDarkMode ? Colors.black : Colors.white,

@@ -7,7 +7,7 @@ const {createContext, useContext} = React;
 export const httpImpl: IHttp = new HttpImplementation();
 const HttpImplContext = createContext<IHttp>(httpImpl);
 
-const HttpImplementationProvider = ({children}: {children: JSX.Element}) => {
+const HttpImplementationProvider = ({children}: {children: React.ReactElement}) => {
   return (
     <HttpImplContext.Provider value={httpImpl}>
       {children}
