@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,9 +9,7 @@ import {
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import CreditCardUseCaseProvider, {
-  useCreditCardImpl,
-} from '@core/Modules/CreditCards/Applications/UseCases';
+import {useCreditCardImpl} from '@core/Modules/CreditCards/Applications/UseCases';
 import {CreditCard} from '@core/Modules/CreditCards/Domain/Entities/CreditCard';
 
 const Colors = {
@@ -25,7 +23,7 @@ export default function App(): React.JSX.Element {
   const creditCardImpl = useCreditCardImpl();
 
   const [creditCards, setCrediCards] = useState<CreditCard[]>();
-  const [_, setCrediCardsError] = useState<any>();
+  const [_creditCardsError, setCrediCardsError] = useState<any>();
 
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -42,44 +40,42 @@ export default function App(): React.JSX.Element {
     }
   };
 
-  useMemo(async () => {
-    await invokeCreditcards();
+  React.useEffect(() => {
+    invokeCreditcards();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <CreditCardUseCaseProvider>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
-          <View
-            style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-            {creditCards?.map((creditCard: CreditCard) => (
-              <View style={styles.cardContainer}>
-                <View style={styles.card}>
-                  <Text style={styles.cardAmount}>
-                    {'US$ ' + creditCard.cashAdvance}
-                  </Text>
-                  <Text style={styles.cardText}>
-                    {creditCard.alias}
-                  </Text>
-                  <Text style={styles.cardText}>
-                    {creditCard.productNumber}
-                  </Text>
-                </View>
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          {creditCards?.map((creditCard: CreditCard) => (
+            <View key={creditCard.productNumber} style={styles.cardContainer}>
+              <View style={styles.card}>
+                <Text style={styles.cardAmount}>
+                  {'US$ ' + creditCard.cashAdvance}
+                </Text>
+                <Text style={styles.cardText}>
+                  {creditCard.alias}
+                </Text>
+                <Text style={styles.cardText}>
+                  {creditCard.productNumber}
+                </Text>
               </View>
-            ))}
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </CreditCardUseCaseProvider>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

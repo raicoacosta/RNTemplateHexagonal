@@ -65,7 +65,7 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     
     /* Deprecation Options */
-    "ignoreDeprecations": "5.0"               /* Silence deprecation warnings for TypeScript 5.x features */
+    "ignoreDeprecations": "6.0"               /* Silence deprecation warnings for TypeScript 6.x features */
   },
   "exclude": [
     "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"

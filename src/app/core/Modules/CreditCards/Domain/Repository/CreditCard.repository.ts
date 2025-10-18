@@ -13,55 +13,79 @@ export const validate = (
 } => {
   try {
     return schema.parse(dto);
-  } catch (_error) {
+  } catch {
     throw new Error('SCHEMA_VALIDATION_ERROR');
   }
 };
+
+// Mock data para desarrollo
+const MOCK_CREDIT_CARDS = [
+  {
+    alias: 'Tarjeta de credito platinum',
+    bankName: 'BCP',
+    cashAdvance: 3000,
+    currency: 'PEN',
+    currencyUS: 'USD',
+    currentBalanceRD: 0,
+    expirationDateCC: '12/2026',
+    isInternational: false,
+    name: 'Platinum Card',
+    pendingBalanceAtCutRD: 0,
+    productNumber: '4076733111412174',
+    productType: 'TC',
+  },
+  {
+    alias: 'Tarjeta de credito oro',
+    bankName: 'BCP',
+    cashAdvance: 7000,
+    currency: 'PEN',
+    currencyUS: 'USD',
+    currentBalanceRD: 0,
+    expirationDateCC: '06/2027',
+    isInternational: false,
+    name: 'Gold Card',
+    pendingBalanceAtCutRD: 0,
+    productNumber: '222767232311412174',
+    productType: 'TC',
+  },
+  {
+    alias: 'Tarjeta de credito black',
+    bankName: 'BCP',
+    cashAdvance: 15000,
+    currency: 'PEN',
+    currencyUS: 'USD',
+    currentBalanceRD: 0,
+    expirationDateCC: '03/2028',
+    isInternational: true,
+    name: 'Black Card',
+    pendingBalanceAtCutRD: 0,
+    productNumber: '5555444433332222',
+    productType: 'TC',
+  },
+];
 
 export class CreditCardRepository
   implements IGetAll<CreditCard[]>, IPost<CreditCard, void>
 {
   private http = new HttpImplementation();
+
   public async getAll(): Promise<CreditCard[]> {
-    const creditCard = await this.http.get(
-      'https://run.mocky.io/v3/66f931fe-02c6-450d-820f-dc3fd64c3662',
-    );
+    // Simulando una llamada asíncrona con delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // Usar data mock en lugar de API externa
+    const creditCard = MOCK_CREDIT_CARDS;
+
+    // Validar con Zod schema
     validate(AllCreditCardsDtoSchema, creditCard);
+
+    // Mapear DTO a Entidades
     return dtoToAllCreditCards(creditCard);
   }
 
   public async post(body: any): Promise<void> {
-    await this.http.get('local', {body});
+    // Simulando operación POST
+    await new Promise(resolve => setTimeout(resolve, 300));
+    console.log('Mock POST:', body);
   }
-
-  // [
-  //   {
-  //     "alias": "Tarjeta de credito platinum",
-  //     "bankName": "BCP",
-  //     "cashAdvance": 3000,
-  //     "currency": "value",
-  //     "currencyUS": "value",
-  //     "currentBalanceRD": 0,
-  //     "expirationDateCC": "value",
-  //     "isInternational": false,
-  //     "name": "value",
-  //     "pendingBalanceAtCutRD": 0,
-  //     "productNumber": "4076733111412174",
-  //     "productType": "TC"
-  //   },
-  //   {
-  //     "alias": "Tarjeta de credito oro",
-  //     "bankName": "BCP",
-  //     "cashAdvance": 7000,
-  //     "currency": "value",
-  //     "currencyUS": "value",
-  //     "currentBalanceRD": 0,
-  //     "expirationDateCC": "value",
-  //     "isInternational": false,
-  //     "name": "value",
-  //     "pendingBalanceAtCutRD": 0,
-  //     "productNumber": "222767232311412174",
-  //     "productType": "TC"
-  //   }
-  // ]
 }
