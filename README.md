@@ -614,8 +614,12 @@ El proyecto incluye **30+ tests unitarios** que cubren:
 
 **Ejecutar tests:**
 ```bash
-yarn test
+yarn test                    # Ejecutar todos los tests
+yarn test --watch           # Modo watch
+yarn test --coverage        # Con cobertura
 ```
+
+📋 **Ver resultados detallados:** [TEST_RESULTS.md](./TEST_RESULTS.md)
 
 **Con cobertura:**
 ```bash
