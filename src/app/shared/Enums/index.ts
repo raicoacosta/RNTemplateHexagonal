@@ -1,1 +1,1 @@
-export { StorageEnum } from "./storage.enum";
+export { StorageEnum } from './Storage.enum';
