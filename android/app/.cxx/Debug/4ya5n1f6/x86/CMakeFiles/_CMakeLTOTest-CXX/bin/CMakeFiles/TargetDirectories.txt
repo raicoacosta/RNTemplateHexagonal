@@ -1,0 +1,4 @@
+/Users/raicoacosta/Desarrollo/RNTemplateHexagonal/android/app/.cxx/Debug/4ya5n1f6/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+/Users/raicoacosta/Desarrollo/RNTemplateHexagonal/android/app/.cxx/Debug/4ya5n1f6/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+/Users/raicoacosta/Desarrollo/RNTemplateHexagonal/android/app/.cxx/Debug/4ya5n1f6/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+/Users/raicoacosta/Desarrollo/RNTemplateHexagonal/android/app/.cxx/Debug/4ya5n1f6/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir
