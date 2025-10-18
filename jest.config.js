@@ -11,4 +11,6 @@ module.exports = {
     '/android/',
     '/ios/',
   ],
+  // Generar reporte JSON para el script
+  testResultsProcessor: '<rootDir>/scripts/test/test-results-processor.js',
 };

@@ -167,6 +167,7 @@ Gemfile.lock
 /.nyc_output
 __coverage__/
 .jest-test-results.json
+test-results.json
 
 # ==========================================
 # Logs

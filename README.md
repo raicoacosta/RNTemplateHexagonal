@@ -619,7 +619,9 @@ yarn test --watch           # Modo watch
 yarn test --coverage        # Con cobertura
 ```
 
-📋 **Ver resultados detallados:** [TEST_RESULTS.md](./TEST_RESULTS.md)
+📋 **Reporte automático:** Cada vez que ejecutas `yarn test`, se genera automáticamente [TEST_RESULTS.md](./TEST_RESULTS.md) con un resumen completo de los resultados.
+
+💡 **Más info:** [Cómo funciona la generación de reportes](./docs/TEST_REPORT_GENERATION.md)
 
 **Con cobertura:**
 ```bash
