@@ -1,1 +1,0 @@
-/Users/raicoacosta/Desarrollo/RNTemplateHexagonal/android/app/build/intermediates/cxx/Debug/4ya5n1f6/obj/arm64-v8a
