@@ -13,7 +13,7 @@ export const validate = (
 } => {
   try {
     return schema.parse(dto);
-  } catch (e) {
+  } catch (_error) {
     throw new Error('SCHEMA_VALIDATION_ERROR');
   }
 };

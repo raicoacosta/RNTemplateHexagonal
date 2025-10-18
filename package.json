@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-export-namespace-from": "^7.27.1",
     "@babel/preset-env": "^7.28.3",
     "@babel/runtime": "^7.28.4",
     "@react-native-community/cli": "^20.0.2",
@@ -38,6 +39,7 @@
     "@react-native/typescript-config": "^0.82.0",
     "@tsconfig/react-native": "^3.0.7",
     "@types/react": "^19.2.2",
+    "@types/react-native-get-random-values": "^1.8.2",
     "@types/react-test-renderer": "^19.1.0",
     "babel-jest": "^29.7.0",
     "eslint": "^8.57.1",

@@ -1,4 +1,3 @@
-import ButtonComponent from '@components/Button';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import React from 'react';
 import {View} from 'react-native';
@@ -11,8 +10,7 @@ const RecoverPasswordPresenter = ({
 }) => {
   return (
     <View style={{flex: 1}}>
-      <FormRecoverPasswordComponent
-        navigation={navigation}></FormRecoverPasswordComponent>
+      <FormRecoverPasswordComponent navigation={navigation} />
     </View>
   );
 };

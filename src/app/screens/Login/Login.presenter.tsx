@@ -8,12 +8,9 @@ const LoginPresenter = ({
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
-  
-  
-
   return (
     <View style={{flex: 1}}>
-      <FormLoginComponent navigation={navigation}></FormLoginComponent>
+      <FormLoginComponent navigation={navigation} />
     </View>
   );
 };

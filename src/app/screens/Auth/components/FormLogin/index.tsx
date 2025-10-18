@@ -5,13 +5,13 @@ import 'react-native-get-random-values';
 import ButtonComponent from '@components/Button';
 
 const FormLoginComponent = ({
-  navigation,
+  navigation: _navigation,
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
   return (
     <View style={{flex: 1}}>
-      <ButtonComponent></ButtonComponent>
+      <ButtonComponent />
     </View>
   );
 };

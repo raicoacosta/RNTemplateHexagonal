@@ -1,11 +1,14 @@
 import {useCreditCardImpl} from '@core/Modules/CreditCards/Applications/UseCases';
 
 export const RecoverPasswordHook = () => {
-  const creditCardImpl = useCreditCardImpl();
+  const _creditCardImpl = useCreditCardImpl();
 
   const recoverPassword = () => {
     try {
-    } catch (error) {}
+      // TODO: Implement password recovery logic
+    } catch (_error) {
+      // TODO: Handle error
+    }
   };
 
   return {recoverPassword};

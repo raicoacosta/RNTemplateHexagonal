@@ -1,11 +1,14 @@
 import {useCreditCardImpl} from '@core/Modules/CreditCards/Applications/UseCases';
 
 export const LoginHook = () => {
-  const creditCardImpl = useCreditCardImpl();
+  const _creditCardImpl = useCreditCardImpl();
 
   const login = () => {
     try {
-    } catch (error) {}
+      // TODO: Implementar lógica de login
+    } catch (_error) {
+      // TODO: Manejar error
+    }
   };
 
   return {login};
