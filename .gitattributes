@@ -1,0 +1,129 @@
+# ==========================================
+# Git Attributes for React Native Project
+# ==========================================
+
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# ==========================================
+# Source Code
+# ==========================================
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# ==========================================
+# Configuration Files
+# ==========================================
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.xml text eol=lf
+*.properties text eol=lf
+*.gradle text eol=lf
+Gemfile text eol=lf
+Podfile text eol=lf
+.editorconfig text eol=lf
+.prettierrc text eol=lf
+.eslintrc text eol=lf
+
+# ==========================================
+# Shell Scripts
+# ==========================================
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+gradlew text eol=lf
+
+# ==========================================
+# iOS Files
+# ==========================================
+*.pbxproj text eol=lf merge=union
+*.xcconfig text eol=lf
+*.storyboard text eol=lf
+*.xib text eol=lf
+*.h text eol=lf
+*.m text eol=lf
+*.mm text eol=lf
+*.swift text eol=lf
+
+# ==========================================
+# Android Files
+# ==========================================
+*.java text eol=lf
+*.kt text eol=lf
+*.xml text eol=lf
+
+# ==========================================
+# Documentation
+# ==========================================
+*.txt text eol=lf
+*.md text eol=lf
+*.markdown text eol=lf
+LICENSE text eol=lf
+AUTHORS text eol=lf
+
+# ==========================================
+# Graphics
+# ==========================================
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
+*.pdf binary
+*.webp binary
+
+# ==========================================
+# Fonts
+# ==========================================
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# ==========================================
+# Archives
+# ==========================================
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.rar binary
+
+# ==========================================
+# Media
+# ==========================================
+*.mp4 binary
+*.mov binary
+*.avi binary
+*.mp3 binary
+*.wav binary
+
+# ==========================================
+# Binary Files
+# ==========================================
+*.jks binary
+*.keystore binary
+*.jar binary
+*.aar binary
+*.so binary
+*.apk binary
+*.ipa binary
+*.app binary
+*.dSYM binary
+
+# ==========================================
+# Linguist (GitHub language detection)
+# ==========================================
+# Exclude generated files from language stats
+*.pbxproj linguist-generated=true
+**/Pods/** linguist-vendored
+**/node_modules/** linguist-vendored
+android/build/** linguist-generated=true
+ios/build/** linguist-generated=true

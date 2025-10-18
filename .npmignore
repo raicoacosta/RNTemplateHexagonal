@@ -1,0 +1,77 @@
+# ==========================================
+# NPM Ignore for React Native Template
+# ==========================================
+# This file specifies what should NOT be published if this becomes an npm package
+
+# ==========================================
+# Development files
+# ==========================================
+.vscode/
+.idea/
+*.log
+*.tmp
+
+# ==========================================
+# Tests
+# ==========================================
+__tests__/
+__mocks__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+coverage/
+.jest/
+
+# ==========================================
+# CI/CD
+# ==========================================
+.github/
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+.circleci/
+
+# ==========================================
+# Documentation (keep README.md)
+# ==========================================
+docs/
+*.md
+!README.md
+
+# ==========================================
+# Git files
+# ==========================================
+.git/
+.gitignore
+.gitattributes
+
+# ==========================================
+# Editor config
+# ==========================================
+.editorconfig
+.eslintcache
+.prettierignore
+
+# ==========================================
+# macOS
+# ==========================================
+.DS_Store
+
+# ==========================================
+# Android/iOS builds
+# ==========================================
+android/build/
+android/app/build/
+ios/build/
+ios/Pods/
+*.keystore
+*.jks
+
+# ==========================================
+# Temporary files
+# ==========================================
+*.swp
+*.swo
+*~
+.cache/
